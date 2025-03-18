@@ -93,11 +93,11 @@ export class SegmentationMaskComponent implements AfterViewInit {
     this.layer.draw();
   }
 
-  exportMask(): void {
-    const maskData = this.polygons.map(polygon => polygon.points());
-    const maskJson = JSON.stringify(maskData);
-    console.log(maskJson); // You can download or further process the JSON here
-  }
+ exportMask(): void {
+  const maskData = this.polygons.map(polygon => polygon.points());
+  const maskJson = JSON.stringify(maskData, null, 2); // Add indentation
+  alert(maskJson); // Display JSON in an alert box
+}
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent): void {
