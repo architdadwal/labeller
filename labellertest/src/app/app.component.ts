@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SegmentationMaskComponent } from './segmentation-mask/segmentation-mask.component'; // Import the component
+import { SegmentationMaskComponent } from './segmentation-mask/segmentation-mask.component'; 
 
 @Component({
   selector: 'app-root',

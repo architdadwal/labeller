@@ -3,7 +3,7 @@ import Konva from 'konva';
 
 @Component({
   selector: 'app-segmentation-mask',
-  standalone: true, // Important!
+  standalone: true, 
   templateUrl: './segmentation-mask.component.html',
   styleUrls: ['./segmentation-mask.component.css']
 })
@@ -18,6 +18,7 @@ export class SegmentationMaskComponent implements AfterViewInit {
   private points: number[] = [];
   private imageSrc = 'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=600'; 
 
+  // setting up konva environment
   ngAfterViewInit(): void {
     this.stage = new Konva.Stage({
       container: this.konvaContainer.nativeElement,
@@ -44,7 +45,7 @@ export class SegmentationMaskComponent implements AfterViewInit {
 
     this.stage.on('click', (e) => this.handleClick(e));
   }
-
+//function to handle click events on the Konva stage
   handleClick(e: Konva.KonvaEventObject<MouseEvent>): void {
     if (!this.imageObj) return;
 
@@ -84,7 +85,7 @@ export class SegmentationMaskComponent implements AfterViewInit {
     this.points = [];
     this.layer.draw();
   }
-
+//FOR CLEARING
   clearPolygons(): void {
     this.polygons.forEach(polygon => polygon.destroy());
     this.polygons = [];
@@ -92,7 +93,7 @@ export class SegmentationMaskComponent implements AfterViewInit {
     this.points = [];
     this.layer.draw();
   }
-
+//FOR EXPORTING MASK
  exportMask(): void {
   const maskData = this.polygons.map(polygon => polygon.points());
   const maskJson = JSON.stringify(maskData, null, 2); // Add indentation
